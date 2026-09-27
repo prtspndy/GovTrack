@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "tsx server.ts",
     "build": "vite build",
-    "start": "tsx server.ts",
+    "start": "node server.ts",
     "test": "tsx server/tests/api.test.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
@@ -30,6 +30,7 @@
     "react-dom": "^19.0.1",
     "react-router-dom": "^7.18.4",
     "recharts": "^3.10.1",
+    "tsx": "^4.21.0",
     "vite": "^8.3.0",
     "zod": "^4.6.5"
   },
@@ -45,7 +46,6 @@
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
     "tailwindcss": "^4.3.3",
-    "tsx": "^4.21.0",
     "typescript": "^7.0.2"
   }
 }

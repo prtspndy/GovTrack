@@ -1083,6 +1083,28 @@
       "isRead": false,
       "createdAt": "2026-09-27T06:31:32.993Z",
       "updatedAt": "2026-09-27T06:31:32.994Z"
+    },
+    {
+      "_id": "a5d0d2591a0e1d8d4b6",
+      "user": "usr_citizen_001",
+      "title": "Status Updated: UNDER REVIEW",
+      "message": "Your Income Certificate request (GOV-TEST-000999) has moved to UNDER REVIEW. Remarks: Test desk assignment by automated test suite.",
+      "type": "STATUS_UPDATE",
+      "request": "d895f8661a0e1d8d493",
+      "isRead": false,
+      "createdAt": "2026-09-27T07:51:18.965Z",
+      "updatedAt": "2026-09-27T07:51:18.966Z"
+    },
+    {
+      "_id": "f166d49e1a0e1dc701f",
+      "user": "usr_citizen_001",
+      "title": "Status Updated: UNDER REVIEW",
+      "message": "Your Income Certificate request (GOV-TEST-000999) has moved to UNDER REVIEW. Remarks: Test desk assignment by automated test suite.",
+      "type": "STATUS_UPDATE",
+      "request": "5972bdbb1a0e1dc7007",
+      "isRead": false,
+      "createdAt": "2026-09-27T07:55:15.358Z",
+      "updatedAt": "2026-09-27T07:55:15.359Z"
     }
   ],
   "auditLogs": [
@@ -1138,6 +1160,26 @@
       "ipAddress": "::ffff:127.0.0.1",
       "createdAt": "2026-09-27T06:31:32.995Z",
       "updatedAt": "2026-09-27T06:31:32.995Z"
+    },
+    {
+      "_id": "4320656e1a0e1d8d4b7",
+      "user": "usr_admin_001",
+      "action": "STATUS_UPDATED",
+      "request": "d895f8661a0e1d8d493",
+      "description": "Officer updated request GOV-TEST-000999 status from SUBMITTED to UNDER_REVIEW",
+      "ipAddress": "::ffff:127.0.0.1",
+      "createdAt": "2026-09-27T07:51:18.967Z",
+      "updatedAt": "2026-09-27T07:51:18.967Z"
+    },
+    {
+      "_id": "1321160a1a0e1dc7020",
+      "user": "usr_admin_001",
+      "action": "STATUS_UPDATED",
+      "request": "5972bdbb1a0e1dc7007",
+      "description": "Officer updated request GOV-TEST-000999 status from SUBMITTED to UNDER_REVIEW",
+      "ipAddress": "::ffff:127.0.0.1",
+      "createdAt": "2026-09-27T07:55:15.360Z",
+      "updatedAt": "2026-09-27T07:55:15.360Z"
     }
   ]
 }

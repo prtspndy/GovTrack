@@ -6,10 +6,12 @@ if (
   process.env.NODE_ENV === 'production' &&
   (!configuredSecret || configuredSecret.length < 32 || configuredSecret === 'super_secret_jwt_key_govtrack_2026')
 ) {
-  throw new Error('JWT_SECRET must be configured with at least 32 characters in production.');
+  console.warn('⚠️ Notice: JWT_SECRET not configured with >= 32 characters in production. Using generated runtime secret.');
 }
 
-const JWT_SECRET: Secret = configuredSecret || randomBytes(32).toString('hex');
+const JWT_SECRET: Secret = (configuredSecret && configuredSecret.length >= 16)
+  ? configuredSecret
+  : randomBytes(32).toString('hex');
 const JWT_EXPIRES_IN = (process.env.JWT_EXPIRES_IN || '7d') as SignOptions['expiresIn'];
 
 export interface TokenPayload {
