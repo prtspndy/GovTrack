@@ -329,3 +329,39 @@ The codebase is engineered with clear enterprise extension points:
    In `server/controllers/adminController.ts`, notifications can trigger an SMS payload via CDAC Mobile Seva or Twilio.
 4. **Digital Signature (e-Sign)**:
    `uploadFinalDocument` can route through Aadhaar-based e-Sign (C-DAC / NSDL) to embed cryptographic digital signature certificates directly into the generated PDF.
+
+---
+
+## 10. Development Notes & Project Quality
+
+### Source layout
+
+The repository keeps browser code and API code separate while grouping each by responsibility:
+
+- `src/pages/` contains route-level screens, grouped by public, citizen, administrator, and authentication flows.
+- `src/components/` contains shared UI; `src/context/` owns cross-page session state.
+- `src/services/` is the frontend API boundary, and `src/types/` holds shared client-side types.
+- `server/routes/` maps HTTP endpoints, `server/controllers/` handles requests, and `server/services/` contains reusable workflow and integration logic.
+- `server/models/` provides the persistence boundary, with database setup in `server/config/`; middleware and small utilities remain separately scoped.
+- `server/tests/` contains API-level regression coverage. Keep new tests close to their existing server or client feature area.
+
+Prefer extending these boundaries over moving files or duplicating request logic. Keep route/controller changes paired with the corresponding frontend service and API test when behavior changes.
+
+### Environment and local data
+
+The server and API test entry point load `.env` automatically. Copy `.env.example` to `.env` for local configuration; set `JWT_SECRET` to a private value of at least 32 characters before production use. Do not use the publicly visible demo secret shown in the earlier setup example. Development runs without a configured secret use a temporary random key, so existing login tokens become invalid after a server restart.
+
+`UPLOAD_DIR` controls where private uploaded files are stored and defaults to `./uploads`; this runtime directory is excluded from Git. `VITE_API_URL` controls the frontend API base and defaults to `/api`. The JSON data file under `data/` is demonstration/runtime state, not a production database or a safe location for real citizen information.
+
+### Dependency and change workflow
+
+`bun.lock` is the checked-in dependency lockfile. Use Bun for reproducible dependency resolution, and avoid committing a second package-manager lockfile. The equivalent locked setup and checks are:
+
+```bash
+bun install --frozen-lockfile
+bun run lint
+bun run test
+bun run build
+```
+
+The npm scripts listed in the setup section remain available when using npm. For API changes, include regression coverage for authorization, ownership, validation, and status transitions as applicable. Keep credentials, real personal information, uploaded documents, and generated runtime data out of commits. This prototype is not approved for processing real government applications or sensitive citizen information.

@@ -1,5 +1,6 @@
 {
-  "name": "react-example",
+  "name": "govtrack",
+  "description": "Government document request and status tracking system",
   "private": true,
   "version": "0.0.0",
   "type": "module",
