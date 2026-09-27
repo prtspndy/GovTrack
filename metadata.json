@@ -1,0 +1,6 @@
+{
+  "name": "GovTrack — Government Document Request & Status Tracking System",
+  "description": "Enterprise-grade digital government portal for citizens to submit document requests and track real-time processing status across departments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
